@@ -1,1 +1,14 @@
-[]
+[
+  {
+    "id": 1,
+    "text": "Buy milk",
+    "done": false,
+    "createdAt": "22/06/2026"
+  },
+  {
+    "id": 2,
+    "text": "Call dentist",
+    "done": false,
+    "createdAt": "22/06/2026"
+  }
+]

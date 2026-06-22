@@ -1,7 +1,6 @@
 {
   "name": "notes-app",
   "version": "1.0.0",
-  "types": "module",
   "description": "",
   "main": "notes.js",
   "scripts": {
@@ -10,5 +9,8 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs"
+  "type": "module",
+  "dependencies": {
+    "chalk": "^5.6.2"
+  }
 }
