@@ -46,8 +46,7 @@ async function main(){
       const newNote = {
         id: notes.length > 0 ? notes[notes.length - 1].id + 1 : 1,
         text: target,
-        createdAt: dateStr,
-        done: false,
+        createdAt: dateStr
       };
       notes.push(newNote);
       await saveNotes(notes);
@@ -101,8 +100,8 @@ async function main(){
       console.log(chalk.magenta("Usage instructions:"));
       console.log("  node notes.js add 'Task Name'");
       console.log("  node notes.js list");
-      console.log(" node notes.js read[id]");
-      console.log(" node notes.js delete[id]");
+      console.log("  node notes.js read[id]");
+      console.log("  node notes.js delete[id]");
       break;
     } 
 }

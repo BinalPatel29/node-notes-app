@@ -1,17 +1,11 @@
 [
   {
-    "id": 1,
-    "text": "Buy",
-    "createdAt": "22/06/2026"
-  },
-  {
     "id": 2,
     "text": "Call dentist",
     "createdAt": "22/06/2026"
   },
   {
     "text": "Have an amazing day! Don't forget to drink water.",
-    "createdAt": "22/06/2026",
-    "done": false
+    "createdAt": "22/06/2026"
   }
 ]
