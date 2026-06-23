@@ -62,10 +62,32 @@ async function main(){
         if (note.text.length > 40) {
           console.log(chalk.green(`${note.text.slice(0, 40)}...`));
         } else {
-          console.log(`${note.id}. ${chalk.yellow(note.createdAt)} - ${chalk.blue.bold(note.text)} `);
+          console.log(`${note.id}v. ${chalk.yellow(note.createdAt)} - ${chalk.blue.bold(note.text)} `);
         }
       });
       break;
+
+    case "read":
+      if (!target) {
+        console.log(chalk.red("Error: please provide a note ID."));
+        return;
+      }
+      const noteId = Number(target);
+      if (!Number.isInteger(noteId) || noteId <= 0) {
+        console.log(chalk.red("Error: note ID must be a positive integer."));
+        return;
+      }
+      const noteToRead = notes.find((note) => note.id === noteId);
+      if (!noteToRead) {
+        console.log(chalk.yellow(`ID ${noteId} not found.`));
+        return;
+      }
+      console.log(`${noteToRead.id}. ${chalk.yellow(noteToRead.createdAt)} - ${chalk.blue.bold(noteToRead.text)}`);
+      break;
+
+    case "delete":
+      
+        
 
     default:
       console.log(chalk.magenta("Usage instructions:"));
