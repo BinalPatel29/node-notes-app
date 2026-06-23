@@ -115,13 +115,14 @@ async function main(){
         input: process.stdin, 
         output: process.stdout,
       });
-      rl.question('\nAre you sure you want to delete all notes? (YES/NO) ', (answer) => {
+      rl.question('\nAre you sure you want to delete all notes? (YES/NO) ', async(answer) => {
         if (answer.toUpperCase() === 'YES') {
-          saveNotes([]);
+          await saveNotes([]);
           rl.close();
         } else {
           console.log("clear close!");
         }
+        rl.close();
       });
       break;
 
