@@ -1,17 +1,12 @@
 [
   {
     "id": 1,
-    "text": "Buy milk",
+    "text": "Buy",
     "createdAt": "22/06/2026"
   },
   {
     "id": 2,
     "text": "Call dentist",
-    "createdAt": "22/06/2026"
-  },
-  {
-    "id": 3,
-    "text": "Buy milk",
     "createdAt": "22/06/2026"
   },
   {

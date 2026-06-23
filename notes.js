@@ -51,7 +51,7 @@ async function main(){
       };
       notes.push(newNote);
       await saveNotes(notes);
-      console.log(chalk.green(`✓ Task added: ${target}`));
+      console.log(chalk.green(`Task added: ${target}`));
       break;
 
     case "list":
@@ -62,7 +62,7 @@ async function main(){
         if (note.text.length > 40) {
           console.log(chalk.green(`${note.text.slice(0, 40)}...`));
         } else {
-          console.log(`${note.id}v. ${chalk.yellow(note.createdAt)} - ${chalk.blue.bold(note.text)} `);
+          console.log(`${note.id}. ${chalk.yellow(note.createdAt)} - ${chalk.blue.bold(note.text)} `);
         }
       });
       break;
@@ -86,13 +86,25 @@ async function main(){
       break;
 
     case "delete":
-      
-        
+      const idToDelete = parseInt(target);
+      const initialiseLength = notes.length;
+      const filternotes = notes.filter((note) => note.id !==idToDelete );  
+      if(filternotes.length === initialiseLength){
+        console.log(chalk.red("Error: Note ID not found."));
+        return;
+      }
+      await saveNotes(filternotes);
+      console.log(`${idToDelete} was deleted successfully.`);
+      break;
+
+    
 
     default:
       console.log(chalk.magenta("Usage instructions:"));
       console.log("  node notes.js add 'Task Name'");
       console.log("  node notes.js list");
+      console.log(" node notes.js read[id]");
+      console.log(" node notes.js delete[id]");
       break;
     } 
 }
