@@ -1,5 +1,6 @@
 import fs from "fs";
 import chalk from "chalk";
+import readline from "readline";
 
 const FILE_PATH = "notes.json";
 
@@ -109,6 +110,21 @@ async function main(){
       });
       break;
 
+    case "clear":
+      const rl = readline.createInterface({
+        input: process.stdin, 
+        output: process.stdout,
+      });
+      rl.question('\nAre you sure you want to delete all notes? (YES/NO) ', (answer) => {
+        if (answer.toLowerCase() === 'yes') {
+          saveNotes([]);
+          rl.close();
+        } else {
+          console.log("clear close!");
+        }
+      });
+      break;
+
     default:
       console.log(chalk.magenta("Usage instructions:"));
       console.log("  node notes.js add 'Task Name'");
@@ -116,6 +132,7 @@ async function main(){
       console.log("  node notes.js read[id]");
       console.log("  node notes.js delete[id]");
       console.log("  node notes.js seach[keyword]")
+      console.log("  node notes.js clear");
       break;
     } 
 }
