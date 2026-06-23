@@ -97,8 +97,6 @@ async function main(){
       console.log(`${idToDelete} was deleted successfully.`);
       break;
 
-    
-
     default:
       console.log(chalk.magenta("Usage instructions:"));
       console.log("  node notes.js add 'Task Name'");
