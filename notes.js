@@ -116,7 +116,7 @@ async function main(){
         output: process.stdout,
       });
       rl.question('\nAre you sure you want to delete all notes? (YES/NO) ', (answer) => {
-        if (answer.toLowerCase() === 'yes') {
+        if (answer.toUpperCase() === 'YES') {
           saveNotes([]);
           rl.close();
         } else {
