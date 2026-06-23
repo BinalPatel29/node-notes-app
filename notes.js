@@ -96,12 +96,26 @@ async function main(){
       console.log(`${idToDelete} was deleted successfully.`);
       break;
 
+    case "search":
+      const keyword = target.toLowerCase();
+      const matchedNotes = notes.filter((note) => note.text.toLowerCase().includes(keyword) || note.createdAt.toLowerCase().includes(keyword) || String(note.id) === keyword);
+
+      if (matchedNotes.length === 0) {
+        console.log(chalk.yellow(`No notes found matching "${target}".`));
+        return;
+      }
+      matchedNotes.forEach((note) => {
+        console.log(`${note.id}. ${chalk.yellow(note.createdAt)} - ${chalk.blue.bold(note.text)}`);
+      });
+      break;
+
     default:
       console.log(chalk.magenta("Usage instructions:"));
       console.log("  node notes.js add 'Task Name'");
       console.log("  node notes.js list");
       console.log("  node notes.js read[id]");
       console.log("  node notes.js delete[id]");
+      console.log("  node notes.js seach[keyword]")
       break;
     } 
 }
